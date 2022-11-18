@@ -11,6 +11,7 @@ import { CategoryContainer } from "../components/categories/CategoryContainer"
 import { UserList } from "../components/users/UserList"
 import { TagEdit } from "../components/tags/TagEdit"
 import { UserDetails } from "../components/users/UserDetails"
+import { UpdateCategory } from "../components/categories/UpdateCategory"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -22,6 +23,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/tags" element={<TagContainer />} />
         <Route path="/tags/:tagId" element={<TagEdit />} />
         <Route path="/posts" element={<AllPosts />} />
+        <Route path="/" element={< AllPosts token={token} />} />
         <Route path="/posts/:postId" element={<PostDetails />} />
         <Route path="/categories" element={<CategoryContainer />} />
         <Route path="/posts" element={<AllPosts />} />
@@ -32,7 +34,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/users" element={<UserList />} />
         <Route path="/myPosts" element={<MyPosts />} />
         <Route path="/users/:userId" element={<UserDetails />} />
-
+        <Route path="categories/:categoryId/edit" element={ <UpdateCategory /> } />
       </Route>
     </Routes>
   </>
